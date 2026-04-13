@@ -1,4 +1,3 @@
-improve this 2 
 // Import the data to customize and insert them into page
 const fetchData = () => {
   fetch("customize.json")
