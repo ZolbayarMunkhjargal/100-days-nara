@@ -243,4 +243,29 @@ const animationTimeline = () => {
 /* ========================
    INIT
 ======================== */
-fetchData();
+const fetchData = async () => {
+  try {
+    const res = await fetch("customize.json");
+
+    if (!res.ok) throw new Error("Missing customize.json");
+
+    const data = await res.json();
+
+    Object.keys(data).forEach(key => {
+      const el = document.querySelector(`[data-node-name*="${key}"]`);
+      if (!el || !data[key]) return;
+
+      if (key === "imagePath") {
+        el.src = data[key];
+      } else {
+        el.textContent = data[key];
+      }
+    });
+
+  } catch (err) {
+    console.warn("Using default HTML content:", err);
+  }
+
+  // ALWAYS run animation
+  animationTimeline();
+};
