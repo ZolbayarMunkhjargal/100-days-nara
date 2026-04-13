@@ -126,8 +126,15 @@ body {
   position: absolute;
   width: 80px;
   top: -35px;
-  left: 41.5%;
-  /* transform: scale(0.1); */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 500px) {
+  .six .hat {
+    width: 50px;
+    top: -20px;
+  }
 }
 
 .baloons img {
